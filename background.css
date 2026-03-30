@@ -1,0 +1,31 @@
+/* Background, set animations for moving a span and rotating it*/
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
+    }
+}
+
+/* Then set the background to fill the entire screen, behind text, in the correct colour */
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #0b0b12;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Set spans to be circles with the animation */
+.background span {
+    width: 2vmin;
+    height: 2vmin;
+    border-radius: 2vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation: move;
+    animation-duration: 45s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}

@@ -1,0 +1,23 @@
+/* Generic styles applied to everyting */
+
+/* Colours */
+:root {
+  --bg: #0b0b12;
+  --surface: #141420;
+  --primary: #7c5cff;
+  --secondary: #00d4ff;
+
+  --text-main: #f5f5f7;
+  --text-muted: #a0a0b3;
+
+  --orb1: #7c5cff;
+  --orb2: #00d4ff;
+  --orb3: #ff4ecd;
+  --orb4: #5bff88;
+}
+
+/* Text */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+}
