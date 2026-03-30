@@ -57,12 +57,54 @@ body {
     margin: 8px 0px;
 }
 
+/* Set hidden links to appear normally */
+.section h3 a,
+.section p a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
 /* Then add section chips to quickly display information */
 .section-chips {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 8px;;
+}
+
+/* Add styles for the section dropdowns */
+.section-dropdown > summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0 10px;
+  align-items: start;
+}
+
+/* Add an animation so it changes from ▸ to a down arrow when clicked */
+.section-dropdown > summary::before {
+  content: "▸";
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.section-dropdown[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Then set the H3 to sit next to the ▸ */
+.section-dropdown > summary > :is(h3, p) {
+  grid-column: 2;
+  margin: 0;
+}
+
+/* And set the p to sit below the H3, with a small gap */
+.section-dropdown > summary > p {
+  margin-top: 9px;
 }
 
 /* A chip is similar to a section, it has a highlighted background to show the key info */
@@ -101,7 +143,7 @@ body {
     text-decoration: none;
     color: var(--text-main);
     transition: all 0.3s ease;
-    gap: 2px
+    gap: 2px;
 }
 
 /* Give buttons individual colours for each site */
