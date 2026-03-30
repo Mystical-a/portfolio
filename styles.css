@@ -36,11 +36,46 @@ body {
 }
 
 .section p {
-    margin: 12px 0;
+    margin: 12px 0px;
     line-height: 1.6;
     letter-spacing: 0.3px;
     color: var(--text-main);
 }
+
+/* Allow sections to be split into two columns */
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    align-items: start;;
+}
+
+.section-left, .section-right {
+    text-align: left;
+}
+.section-left p, .section-right p {
+    margin: 8px 0px;
+}
+
+/* Then add section chips to quickly display information */
+.section-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;;
+}
+
+/* A chip is similar to a section, it has a highlighted background to show the key info */
+.chip {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid var(--surface-border);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
 
 /* Styles for the link buttons */
 /* Position them one after the other, in line with the previous segment */
