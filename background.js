@@ -18,16 +18,10 @@ for (let i = 0; i < numStars; i++) {
     span.style.animationDelay = (-Math.random() * 50) + "s";
 
     // And a random transform origin for the rotation
-    span.style.transformOrigin =
-    (Math.random() * 40 - 20) + "vw " +
-    (Math.random() * 40 - 20) + "vh";
+    span.style.transformOrigin = (Math.random() * 40 - 20) + "vw " + (Math.random() * 40 - 20) + "vh";
 
     // Random glow size
-    span.style.boxShadow =
-    (Math.random() > 0.5 ? "-" : "") +
-    "4vmin 0 " +
-    (0.5 + Math.random()) +
-    "vmin currentColor";
+    span.style.boxShadow = (Math.random() > 0.5 ? "-" : "") + "4vmin 0 " + (0.2 + Math.random()) + "vmin currentColor";
 
     // Then add it to the screen
     bg.appendChild(span);

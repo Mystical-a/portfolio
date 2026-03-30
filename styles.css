@@ -3,7 +3,9 @@
 /* Colours */
 :root {
   --bg: #0b0b12;
-  --surface: #141420;
+  --surface: #202020cc;
+  --surface-border: #4d4d4d;
+  
   --primary: #7c5cff;
   --secondary: #00d4ff;
 
@@ -20,4 +22,63 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-main);
+    opacity: 1;
+}
+
+/* Sections, these are the surfaces containing info */
+/* They have slight opacity so you can see the background through them, and a rounded border */
+.section {
+    padding: 5px 15px;
+    margin: 10px 0px;
+    border: 1px solid var(--surface-border);
+    border-radius: 2vh;
+    background-color: var(--surface);
+}
+
+.section p {
+    margin: 12px 0;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    color: var(--text-main);
+}
+
+/* Styles for the link buttons */
+/* Position them one after the other, in line with the previous segment */
+.links {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Then give all the buttons the same border, padding and background */
+.link-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 15px;
+    justify-content: center;
+    border: 1px solid var(--surface-border);
+    border-radius: 2vh;
+    background-color: var(--surface);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    gap: 2px
+}
+
+/* Give buttons individual colours for each site */
+.link-btn.github {
+    background-color: #0FBF3E;
+}
+.link-btn.linkedin {
+    background-color: #0077B5;
+}
+.link-btn.cv {
+    background-color: #7c5cff;
+}
+.link-btn.email {
+    background-color: #c71610;
 }
