@@ -1,0 +1,533 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #0d0d0d;
+    color: white;
+}
+
+/* Title section */
+.title-container {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at top,
+            #355d9d 0%,
+            #234a86 35%,
+            #16345d 60%,
+            #0e1b2f 80%,
+            #090909 99%
+        );
+}
+
+/* Header sits above title, but shares its background */
+header {
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    background: transparent;
+}
+
+/* Logo is the RonanBerridge.uk in the top left of the header */
+.logo {
+    flex: 1;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* The nav (page options) dissapears on small devices as well as the logo */
+nav {
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 30px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+@media (max-width: 900px) {
+
+    .logo,
+    nav {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+}
+
+/* Remove the underline from the nav links and make them white, with a hover effect */
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+nav a:hover {
+
+    color: white;
+    transform: translateY(-2px);
+
+}
+
+/* The actual title is the full height of the screen minus the header */
+.title {
+    height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.title-content {
+    position: relative;
+    text-align: center;
+}
+
+/* The image sits behind the text and has a transparent background */
+.title-image {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.7;
+    width: min(900px, 80vw);
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Set the text sizes */
+.title h1 {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+}
+
+.title p {
+    font-size: 1.4rem;
+    font-weight: 540;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* About section */
+.about {
+    width: 100%;
+    padding: 120px 40px;
+    background: #090909;
+}
+
+/* Define a split container, allowing two things side by side */
+.split-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 8vw, 100px);
+    align-items: start;
+}
+
+.split h2 {
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 35px;
+    letter-spacing: -2.5px;
+
+}
+
+.split h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+.split h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.split p {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin-bottom: 25px;
+    max-width: 600px;
+}
+
+/* Split items are similar but vertical splits */
+.split-item {
+    margin-bottom: 45px;
+}
+
+.split-item p {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+}
+
+.split-item span {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+}
+
+/* And make this responsive so on smaller devices is stacks vertically instead of splitting horizontally */
+@media (max-width: 900px) {
+
+    .about {
+        padding: 80px 25px;
+    }
+
+
+    .split-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .split h2 {
+        font-size: 3rem;
+    }
+
+
+    .split h3 {
+        font-size: 2rem;
+    }
+
+}
+
+/* Work section */
+.work {
+    width: 100%;
+    padding: 120px 40px;
+    background: #355d9d;
+}
+
+.work h2 {
+    text-align: center;
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 80px;
+
+}
+
+/* This section uses a carousel */
+.carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.carousel-button {
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.carousel-button:hover {
+    background: rgba(255,255,255,0.15);
+    transform: scale(1.08);
+}
+
+/* A slide is a single item in the carousel */
+/* This has text, an image and a gradient to make the text readable */
+.slide {
+    position: relative;
+    flex: 1;
+    height: 650px;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: #355d9d;
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+/* When changing slide, this fade class is added to trigger the transition animation */
+.slide.fade {
+    opacity: 0;
+}
+
+.slide img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.9) 0%,
+            rgba(0,0,0,0.5) 30%,
+            rgba(0,0,0,0.2) 60%
+        );
+}
+
+.slide-content {
+    position: absolute;
+    left: 50px;
+    bottom: 60px;
+    max-width: 650px;
+    z-index: 2;
+}
+
+.slide-content h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.slide-content p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.9);
+}
+
+.slide-tag {
+    display: inline-block;
+    margin-top: 30px;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+}
+
+.slide-number {
+    position: absolute;
+    right: 35px;
+    bottom: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    z-index: 2;
+}
+
+/* Projects section */
+.projects {
+    width: 100%;
+    padding: 120px 40px;
+    background: #090909;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 80px;
+
+}
+
+/* Projects are placed in a grid */
+
+.projects-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* They have a set height, some are featured taking up multiple columns */
+.project {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #1f1f1f;
+    cursor: pointer;
+}
+
+.project img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    flex-shrink: 0;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 30px;
+}
+
+/* h3 is for the title of the project */
+.project-content h3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* p is for the description */
+.project-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+}
+
+/* The span is used for the date */
+.project-content span {
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+}
+
+/* A featured project takes up more space in the grid */
+.project.featured {
+    grid-column: span 2;
+}
+
+/* On mobile, stack the grid vertically and make the images smaller */
+@media(max-width:900px) {
+    .projects {
+        padding:80px 20px;
+    }
+    .projects-grid {
+        grid-template-columns:1fr;
+    }
+    .project.featured {
+        grid-column:span 1;
+    }
+    .project img,
+    .project.featured img {
+        height:250px;
+    }
+}
+
+/* Contacts section */
+.contact {
+    width: 100%;
+    padding: 120px 40px;
+    background: #355d9d;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+
+}
+
+/* Contact links are `a`, remove text decoration and add hover effect to show its clickable */
+.contact-links {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-links a {
+    width: fit-content;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-links a:hover {
+    color: white;
+    transform: translateX(8px);
+}
+
+
+/* CV card is a `a` to view CV */
+.cv-card {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    padding: 35px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    text-decoration: none;
+    background: #f4f1ea;
+    color: #111111;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.cv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+/* Header sits underneath the title (Ronan Berridge) to indicate this is a CV */
+.cv-header {
+    letter-spacing: 3px;
+    color: rgba(0,0,0,0.7);
+    margin-bottom: 25px;
+}
+
+/* Title, description and info text */
+.cv-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.cv-card p {
+    color: rgba(0,0,0,0.0.7);
+    line-height: 1.6;
+}
+
+.cv-info {
+    margin-top: auto;
+    padding-top: 25px;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.0.7);
+}
