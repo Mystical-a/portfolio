@@ -8,7 +8,6 @@
 
   <meta name="title" content="Ronan Berridge" />
   <meta name="description" content="My Portpholio! See what I have been up do and what I am working on." />
-  <link rel="stylesheet" href="background.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -96,11 +95,36 @@
 
     </section>
 
-    <section id="work"> // SECTION FOR EXPERIENCE SLIDER THINGY CANVAS
+    <section class="work" id="work">
 
-        aaa
+        <h2>WORK EXPERIENCE</h2>
 
-    </section> // SECTION FOR EXPERIENCE SLIDER THINGY CANVAS
+        <div class="carousel">
+
+        <button id="previous" class="carousel-button">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+            <div class="slide">
+
+                <img id="slide-image">
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h3 id="slide-title"></h3>
+                    <p id="slide-description"></p>
+                    <div id="slide-tag" class="slide-tag"></div>
+                </div>
+                <div id="slide-number" class="slide-number"></div>
+
+            </div>
+
+        <button id="next" class="carousel-button">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        </div>
+
+    </section>
 
     <section id="projects"> // SECTION FOR PROJECTS
 
@@ -115,4 +139,5 @@
     </section>
 
 
+    <script src="carousel.js"></script>
 </body>
