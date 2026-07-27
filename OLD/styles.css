@@ -1,0 +1,161 @@
+/* Generic styles applied to everyting */
+
+/* Colours */
+:root {
+  --bg: #0b0b12;
+  --surface: #202020cc;
+  --surface-border: #4d4d4d;
+  
+  --primary: #7c5cff;
+  --secondary: #00d4ff;
+
+  --text-main: #f5f5f7;
+  --text-muted: #a0a0b3;
+
+  --orb1: #7c5cff;
+  --orb2: #00d4ff;
+  --orb3: #ff4ecd;
+  --orb4: #5bff88;
+}
+
+/* Text */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    opacity: 1;
+}
+
+/* Sections, these are the surfaces containing info */
+/* They have slight opacity so you can see the background through them, and a rounded border */
+.section {
+    padding: 5px 15px;
+    margin: 10px 0px;
+    border: 1px solid var(--surface-border);
+    border-radius: 2vh;
+    background-color: var(--surface);
+}
+
+.section p {
+    margin: 12px 0px;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+    color: var(--text-main);
+}
+
+/* Allow sections to be split into two columns */
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    align-items: start;;
+}
+
+.section-left, .section-right {
+    text-align: left;
+}
+.section-left p, .section-right p {
+    margin: 8px 0px;
+}
+
+/* Set hidden links to appear normally */
+.section h3 a,
+.section p a {
+  color: inherit;
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+/* Then add section chips to quickly display information */
+.section-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;;
+}
+
+/* Add styles for the section dropdowns */
+.section-dropdown > summary {
+  list-style: none;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0 10px;
+  align-items: start;
+}
+
+/* Add an animation so it changes from ▸ to a down arrow when clicked */
+.section-dropdown > summary::before {
+  content: "▸";
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 2px;
+  transition: transform 0.2s ease;
+}
+
+.section-dropdown[open] > summary::before {
+  transform: rotate(90deg);
+}
+
+/* Then set the H3 to sit next to the ▸ */
+.section-dropdown > summary > :is(h3, p) {
+  grid-column: 2;
+  margin: 0;
+}
+
+/* And set the p to sit below the H3, with a small gap */
+.section-dropdown > summary > p {
+  margin-top: 9px;
+}
+
+/* A chip is similar to a section, it has a highlighted background to show the key info */
+.chip {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid var(--surface-border);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.04);
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+
+/* Styles for the link buttons */
+/* Position them one after the other, in line with the previous segment */
+.links {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Then give all the buttons the same border, padding and background */
+.link-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px 15px;
+    justify-content: center;
+    border: 1px solid var(--surface-border);
+    border-radius: 2vh;
+    background-color: var(--surface);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    gap: 2px;
+}
+
+/* Give buttons individual colours for each site */
+.link-btn.github {
+    background-color: #0FBF3E;
+}
+.link-btn.linkedin {
+    background-color: #0077B5;
+}
+.link-btn.cv {
+    background-color: #7c5cff;
+}
+.link-btn.email {
+    background-color: #c71610;
+}
