@@ -25,7 +25,7 @@ const experiences = [
 ];
 
 // Store the current slide and if it is changing slide
-let currentSlide = 1;
+let currentSlide = 0;
 let animating = false;
 
 // Function to load a slide

@@ -341,3 +341,193 @@ nav a:hover {
     color: rgba(255,255,255,0.8);
     z-index: 2;
 }
+
+/* Projects section */
+.projects {
+    width: 100%;
+    padding: 120px 40px;
+    background: #090909;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 80px;
+
+}
+
+/* Projects are placed in a grid */
+
+.projects-grid {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* They have a set height, some are featured taking up multiple columns */
+.project {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #1f1f1f;
+    cursor: pointer;
+}
+
+.project img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    flex-shrink: 0;
+}
+
+.project:hover img {
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 30px;
+}
+
+/* h3 is for the title of the project */
+.project-content h3 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* p is for the description */
+.project-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.8);
+}
+
+/* The span is used for the date */
+.project-content span {
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+}
+
+/* A featured project takes up more space in the grid */
+.project.featured {
+    grid-column: span 2;
+}
+
+/* On mobile, stack the grid vertically and make the images smaller */
+@media(max-width:900px) {
+    .projects {
+        padding:80px 20px;
+    }
+    .projects-grid {
+        grid-template-columns:1fr;
+    }
+    .project.featured {
+        grid-column:span 1;
+    }
+    .project img,
+    .project.featured img {
+        height:250px;
+    }
+}
+
+/* Contacts section */
+.contact {
+    width: 100%;
+    padding: 120px 40px;
+    background: #355d9d;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 3.8rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+
+}
+
+/* Contact links are `a`, remove text decoration and add hover effect to show its clickable */
+.contact-links {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-links a {
+    width: fit-content;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-links a:hover {
+    color: white;
+    transform: translateX(8px);
+}
+
+
+/* CV card is a `a` to view CV */
+.cv-card {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    padding: 35px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    text-decoration: none;
+    background: #f4f1ea;
+    color: #111111;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.cv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+/* Header sits underneath the title (Ronan Berridge) to indicate this is a CV */
+.cv-header {
+    letter-spacing: 3px;
+    color: rgba(0,0,0,0.7);
+    margin-bottom: 25px;
+}
+
+/* Title, description and info text */
+.cv-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.cv-card p {
+    color: rgba(0,0,0,0.0.7);
+    line-height: 1.6;
+}
+
+.cv-info {
+    margin-top: auto;
+    padding-top: 25px;
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.0.7);
+}
