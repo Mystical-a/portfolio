@@ -40,7 +40,7 @@ const projects = [
         title: "Reversi",
         description: "A classic strategy game where players take turns placing discs on a board, with the goal of having the majority of discs of their color at the end.",
         date: "2025",
-        image: "images/ProjectComingSoon.jpg",
+        image: "images/reversiProject.png",
         size: ""
     },
     {
